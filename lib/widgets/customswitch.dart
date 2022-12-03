@@ -17,12 +17,12 @@ class CustomSwitch extends StatefulWidget {
 
 class _CustomSwitchState extends State<CustomSwitch> {
   late bool _switchState;
-  bool _holding = false;
+  bool _holdingState = false;
 
   @override
   void initState() {
     super.initState();
-     _switchState = widget.value;
+    _switchState = widget.value;
   }
 
   @override
@@ -40,14 +40,19 @@ class _CustomSwitchState extends State<CustomSwitch> {
           },
           onTapDown: (details) {
             setState(() {
-              _holding = true;
+              _holdingState = true;
             });
 
             HapticFeedback.lightImpact();
           },
           onTapUp: (details) {
             setState(() {
-              _holding = false;
+              _holdingState = false;
+            });
+          },
+          onTapCancel: () {
+            setState(() {
+              _holdingState = false;
             });
           },
           child: Container(
@@ -74,17 +79,17 @@ class _CustomSwitchState extends State<CustomSwitch> {
                 curve: Curves.fastLinearToSlowEaseIn,
                 duration: const Duration(milliseconds: 500),
                 margin: EdgeInsets.symmetric(
-                  vertical: _holding ? 0.0 : (_switchState ? 3.5 : 4.5),
+                  vertical: _holdingState ? 0.0 : (_switchState ? 3.5 : 4.5),
                 ),
                 height: 28.0,
                 width: 28.0,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: _switchState
-                      ? (_holding
+                      ? (_holdingState
                           ? Theme.of(context).colorScheme.onPrimary
                           : Theme.of(context).colorScheme.primaryContainer)
-                      : (_holding
+                      : (_holdingState
                           ? Theme.of(context).colorScheme.onSurfaceVariant
                           : Theme.of(context).colorScheme.outline),
                 ),

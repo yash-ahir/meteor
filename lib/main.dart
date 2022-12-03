@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'widgets/customswitch.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       title: 'Flutter Demo',
-      home: const MyHomePage(title: 'Simplex UI Demo'),
+      home: const MyHomePage(title: 'Meteor UI Demo'),
     );
   }
 }
