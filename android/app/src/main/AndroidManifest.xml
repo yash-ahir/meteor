@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tech.yashahir.simplex_ui">
+    package="tech.yashahir.meteor">
     <uses-permission android:name="android.permission.VIBRATE" />
    <application
-        android:label="simplex_ui"
+        android:label="meteor"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

@@ -1,4 +1,4 @@
-package tech.yashahir.simplex_ui
+package tech.yashahir.meteor
 
 import io.flutter.embedding.android.FlutterActivity
 
