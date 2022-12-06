@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:meteor/resources/meteor_theme.dart';
+import 'package:meteor/widgets/meteor_textfield.dart';
 
-import 'widgets/customswitch.dart';
+import 'widgets/meteor_switch.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,17 +11,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData.from(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF505050)),
-        // primarySwatch: Colors.red,
-        useMaterial3: true,
+    return MeteorTheme(
+      key: key,
+      isDarkTheme: false,
+      child: MaterialApp(
+        theme: ThemeData(useMaterial3: true),
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        home: const MyHomePage(title: 'Meteor UI Demo'),
       ),
-      title: 'Flutter Demo',
-      home: const MyHomePage(title: 'Meteor UI Demo'),
     );
   }
 }
@@ -39,19 +41,45 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: MeteorTheme.of(context)!.scaffoldBackground,
       appBar: AppBar(
-        title: Text(widget.title),
+        backgroundColor: MeteorTheme.of(context)!.scaffoldBackground,
+        title: Text(
+          widget.title,
+        ),
+        titleTextStyle:
+            MeteorTheme.of(context)!.textStyle.copyWith(fontSize: 32.0),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text("Switch"),
+            Text(
+              "Text Field",
+              style: MeteorTheme.of(context)!.textStyle,
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const MeteorTextField(hintText: "This is a hint"),
+            const SizedBox(
+              height: 100,
+            ),
+            Text(
+              "Switch",
+              style: MeteorTheme.of(context)!.textStyle,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text('Switch is ${_switchState ? "on" : "off"}'),
-                CustomSwitch(
+                Text(
+                  'Switch is ${_switchState ? "on" : "off"}',
+                  style: MeteorTheme.of(context)!.textStyle,
+                ),
+                const SizedBox(
+                  height: 100,
+                ),
+                MeteorSwitch(
                   value: _switchState,
                   onChanged: (value) {
                     setState(() {
