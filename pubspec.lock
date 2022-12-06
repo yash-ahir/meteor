@@ -67,6 +67,15 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  gradient_borders:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: "8523d21e86902dd36284e467d97a969937c2b2ce"
+      url: "https://github.com/yash-ahir/gradient-borders.git"
+    source: git
+    version: "0.2.0"
   lints:
     dependency: transitive
     description:
@@ -158,3 +167,4 @@ packages:
     version: "2.1.2"
 sdks:
   dart: ">=2.18.4 <3.0.0"
+  flutter: ">=1.17.0"
