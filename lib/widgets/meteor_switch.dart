@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:meteor/resources/meteor_theme.dart';
 
-class CustomSwitch extends StatefulWidget {
-  const CustomSwitch({
+class MeteorSwitch extends StatefulWidget {
+  const MeteorSwitch({
     Key? key,
     required this.value,
     required this.onChanged,
@@ -12,10 +13,10 @@ class CustomSwitch extends StatefulWidget {
   final void Function(bool state) onChanged;
 
   @override
-  State<CustomSwitch> createState() => _CustomSwitchState();
+  State<MeteorSwitch> createState() => _MeteorSwitchState();
 }
 
-class _CustomSwitchState extends State<CustomSwitch> {
+class _MeteorSwitchState extends State<MeteorSwitch> {
   late bool _switchState;
   bool _holdingState = false;
 
@@ -35,20 +36,20 @@ class _CustomSwitchState extends State<CustomSwitch> {
               _switchState = !_switchState;
               widget.onChanged(_switchState);
             });
-
-            HapticFeedback.mediumImpact();
           },
           onTapDown: (details) {
             setState(() {
               _holdingState = true;
             });
 
-            HapticFeedback.lightImpact();
+            HapticFeedback.mediumImpact();
           },
           onTapUp: (details) {
             setState(() {
               _holdingState = false;
             });
+
+            HapticFeedback.lightImpact();
           },
           onTapCancel: () {
             setState(() {
@@ -57,16 +58,15 @@ class _CustomSwitchState extends State<CustomSwitch> {
           },
           child: Container(
             decoration: BoxDecoration(
+              gradient: _switchState
+                  ? MeteorTheme.of(context)!.primaryGradient
+                  : null,
               border: Border.all(
-                color: _switchState
-                    ? Theme.of(context).colorScheme.primary
-                    : Theme.of(context).colorScheme.outline,
-                width: 2.0,
+                color: MeteorTheme.of(context)!.outline,
+                width: _switchState ? double.minPositive : 2.0,
               ),
               borderRadius: BorderRadius.circular(32.0),
-              color: _switchState
-                  ? Theme.of(context).colorScheme.primary
-                  : Theme.of(context).colorScheme.surfaceVariant,
+              color: MeteorTheme.of(context)!.containerBackground,
             ),
             height: 32.0,
             width: 52.0,
@@ -81,17 +81,13 @@ class _CustomSwitchState extends State<CustomSwitch> {
                 margin: EdgeInsets.symmetric(
                   vertical: _holdingState ? 0.0 : (_switchState ? 3.5 : 4.5),
                 ),
-                height: 28.0,
-                width: 28.0,
+                height: _switchState ? 32.0 : 28.0,
+                width: _switchState ? 32.0 : 28.0,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: _switchState
-                      ? (_holdingState
-                          ? Theme.of(context).colorScheme.onPrimary
-                          : Theme.of(context).colorScheme.primaryContainer)
-                      : (_holdingState
-                          ? Theme.of(context).colorScheme.onSurfaceVariant
-                          : Theme.of(context).colorScheme.outline),
+                      ? MeteorTheme.of(context)!.containerBackground
+                      : MeteorTheme.of(context)!.outline,
                 ),
               ),
             ),
