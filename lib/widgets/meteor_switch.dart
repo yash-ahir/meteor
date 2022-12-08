@@ -28,6 +28,8 @@ class _MeteorSwitchState extends State<MeteorSwitch> {
 
   @override
   Widget build(BuildContext context) {
+    final MeteorTheme theme = Theme.of(context).extension<MeteorTheme>()!;
+
     return Column(
       children: [
         GestureDetector(
@@ -58,15 +60,13 @@ class _MeteorSwitchState extends State<MeteorSwitch> {
           },
           child: Container(
             decoration: BoxDecoration(
-              gradient: _switchState
-                  ? MeteorTheme.of(context)!.primaryGradient
-                  : null,
+              gradient: _switchState ? theme.primaryGradient : null,
               border: Border.all(
-                color: MeteorTheme.of(context)!.outline,
+                color: theme.outline!,
                 width: _switchState ? double.minPositive : 2.0,
               ),
               borderRadius: BorderRadius.circular(32.0),
-              color: MeteorTheme.of(context)!.containerBackground,
+              color: theme.containerBackground,
             ),
             height: 32.0,
             width: 52.0,
@@ -85,9 +85,8 @@ class _MeteorSwitchState extends State<MeteorSwitch> {
                 width: _switchState ? 32.0 : 28.0,
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: _switchState
-                      ? MeteorTheme.of(context)!.containerBackground
-                      : MeteorTheme.of(context)!.outline,
+                  color:
+                      _switchState ? theme.containerBackground : theme.outline,
                 ),
               ),
             ),

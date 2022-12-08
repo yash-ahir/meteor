@@ -44,6 +44,8 @@ class MeteorTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final MeteorTheme theme = Theme.of(context).extension<MeteorTheme>()!;
+
     double borderWidth = 2.0;
     double focusedBorderWidth = 4.0;
     double disabledBorderWidth = 1.0;
@@ -67,42 +69,42 @@ class MeteorTextField extends StatelessWidget {
         onChanged: onChanged,
         onSaved: onSaved,
         validator: validator,
-        style: MeteorTheme.of(context)!.textStyle,
-        cursorColor: MeteorTheme.of(context)!.textStyle.color,
+        style: theme.textStyle,
+        cursorColor: theme.textStyle?.color,
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: MeteorTheme.of(context)!.textStyle.copyWith(
-                color: MeteorTheme.of(context)!.outline,
-              ),
+          hintStyle: theme.textStyle?.copyWith(
+            color: theme.outline,
+          ),
           filled: true,
-          fillColor: MeteorTheme.of(context)!.containerBackground,
-          hoverColor: MeteorTheme.of(context)!.containerBackground,
+          fillColor: theme.containerBackground,
+          hoverColor: theme.containerBackground,
           contentPadding: contentPadding,
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: MeteorTheme.of(context)!.outline,
+              color: theme.outline!,
               width: borderWidth,
             ),
             borderRadius: borderRadius,
           ),
           focusedBorder: GradientOutlineInputBorder(
-            gradient: MeteorTheme.of(context)!.primaryGradient,
+            gradient: theme.primaryGradient!,
             width: focusedBorderWidth,
             borderRadius: borderRadius,
           ),
           errorBorder: GradientOutlineInputBorder(
-            gradient: MeteorTheme.of(context)!.errorGradient,
+            gradient: theme.errorGradient!,
             width: borderWidth,
             borderRadius: borderRadius,
           ),
           focusedErrorBorder: GradientOutlineInputBorder(
-            gradient: MeteorTheme.of(context)!.errorGradient,
+            gradient: theme.errorGradient!,
             width: focusedBorderWidth,
             borderRadius: borderRadius,
           ),
           disabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: MeteorTheme.of(context)!.outline,
+              color: theme.outline!,
               width: disabledBorderWidth,
             ),
             borderRadius: borderRadius,
