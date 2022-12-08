@@ -17,6 +17,8 @@ dependencies:
   gradient_borders:
     git: https://github.com/yash-ahir/gradient-borders.git
 
+  easy_dynamic_theme: ^2.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
