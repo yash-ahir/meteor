@@ -32,7 +32,10 @@ class _MeteorSwitchState extends State<MeteorSwitch> {
 
     return Column(
       children: [
-        GestureDetector(
+        InkWell(
+          borderRadius: BorderRadius.circular(32.0),
+          focusColor: theme.outline?.withOpacity(0.5),
+          canRequestFocus: true,
           onTap: () {
             setState(() {
               _switchState = !_switchState;
