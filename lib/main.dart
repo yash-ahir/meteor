@@ -1,6 +1,7 @@
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:meteor/resources/meteor_theme.dart';
+import 'package:meteor/widgets/meteor_button.dart';
 import 'package:meteor/widgets/meteor_textfield.dart';
 
 import 'widgets/meteor_switch.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       home: const MyHomePage(
-        title: 'Meteor UI Demo',
+        title: 'Meteor',
       ),
     );
   }
@@ -49,15 +50,20 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool _switchState = false;
-  bool _darkMode = false;
+  late bool _darkMode;
 
   @override
   Widget build(BuildContext context) {
     final MeteorTheme theme = Theme.of(context).extension<MeteorTheme>()!;
 
+    _darkMode = EasyDynamicTheme.of(context).themeMode == ThemeMode.dark;
+
     return Scaffold(
       backgroundColor: theme.scaffoldBackground,
       appBar: AppBar(
+        leading: const Image(
+          image: AssetImage("graphics/meteor.png"),
+        ),
         backgroundColor: theme.scaffoldBackground,
         actions: [
           Padding(
@@ -100,25 +106,92 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Text Field",
+                "UI Demo",
+                style: theme.textStyle!.copyWith(
+                  fontSize: 32.0,
+                ),
+              ),
+              const Spacer(),
+              Text(
+                "Button",
                 style: theme.textStyle,
               ),
               const SizedBox(
-                height: 20,
+                height: 16,
               ),
-              const MyCustomForm(),
-              const SizedBox(
-                height: 16.0,
+              Column(
+                children: [
+                  Text(
+                    "With gradient",
+                    style: theme.textStyle,
+                  ),
+                  const SizedBox(
+                    height: 4.0,
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      MeteorButton(
+                        text: "With icon",
+                        icon: Icons.interests_outlined,
+                        gradient: true,
+                        onPressed: () {},
+                      ),
+                      const SizedBox(
+                        width: 8.0,
+                      ),
+                      MeteorButton(
+                        text: "Without icon",
+                        gradient: true,
+                        onPressed: () {},
+                      ),
+                      const SizedBox(
+                        width: 8.0,
+                      ),
+                      MeteorButton(
+                        icon: Icons.star_border,
+                        gradient: true,
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 8.0,
+                  ),
+                  Text(
+                    "Without gradient",
+                    style: theme.textStyle,
+                  ),
+                  const SizedBox(
+                    height: 4.0,
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      MeteorButton(
+                        text: "With icon",
+                        icon: Icons.interests_outlined,
+                        onPressed: () {},
+                      ),
+                      const SizedBox(
+                        width: 8.0,
+                      ),
+                      MeteorButton(
+                        text: "Without icon",
+                        onPressed: () {},
+                      ),
+                      const SizedBox(
+                        width: 8.0,
+                      ),
+                      MeteorButton(
+                        icon: Icons.star_border,
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              Divider(
-                thickness: 4.0,
-                indent: 16.0,
-                endIndent: 16.0,
-                color: theme.outline,
-              ),
-              const SizedBox(
-                height: 16.0,
-              ),
+              const Spacer(),
               Text(
                 "Switch",
                 style: theme.textStyle,
@@ -130,9 +203,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     'Switch is ${_switchState ? "on" : "off"}',
                     style: theme.textStyle,
                   ),
-                  const SizedBox(
-                    height: 100,
-                  ),
                   MeteorSwitch(
                     value: _switchState,
                     onChanged: (value) {
@@ -143,6 +213,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
+              const Spacer(),
+              Text(
+                "Text Field",
+                style: theme.textStyle,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              const MyCustomForm(),
+              const Spacer(),
             ],
           ),
         ),
@@ -165,8 +245,6 @@ class MyCustomFormState extends State<MyCustomForm> {
 
   @override
   Widget build(BuildContext context) {
-    final MeteorTheme theme = Theme.of(context).extension<MeteorTheme>()!;
-
     return Form(
       key: _formKey,
       child: Column(
@@ -183,21 +261,40 @@ class MyCustomFormState extends State<MyCustomForm> {
           const SizedBox(
             height: 16.0,
           ),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: theme.containerBackground,
-              foregroundColor: theme.outline,
-            ),
+          MeteorButton(
+            text: "Submit",
             onPressed: () {
               _formKey.currentState!.validate();
             },
-            child: Text(
-              "Submit",
-              style: theme.textStyle,
-            ),
           )
         ],
       ),
+    );
+  }
+}
+
+class Spacer extends StatelessWidget {
+  const Spacer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final MeteorTheme theme = Theme.of(context).extension<MeteorTheme>()!;
+
+    return Column(
+      children: [
+        const SizedBox(
+          height: 32.0,
+        ),
+        Divider(
+          thickness: 4.0,
+          indent: 16.0,
+          endIndent: 16.0,
+          color: theme.outline,
+        ),
+        const SizedBox(
+          height: 32.0,
+        ),
+      ],
     );
   }
 }
