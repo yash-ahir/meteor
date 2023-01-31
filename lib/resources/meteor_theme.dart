@@ -68,8 +68,8 @@ class MeteorTheme extends ThemeExtension<MeteorTheme> {
     primaryGradient: LinearGradient(
       transform: GradientRotation(pi / 3),
       colors: [
-        Color(0xFF005BEA),
-        Color(0xFF00C6FB),
+        Color(0xFF2F62DD),
+        Color(0xFF159FEF),
       ],
     ),
     errorGradient: LinearGradient(
@@ -92,6 +92,7 @@ class MeteorTheme extends ThemeExtension<MeteorTheme> {
     containerBackground: Color(0xFFF6F6F6),
     outline: Color(0xFF5F6768),
     textStyle: TextStyle(
+      fontFamily: "Rubik",
       color: Color(0xFF111111),
     ),
   );
@@ -121,9 +122,10 @@ class MeteorTheme extends ThemeExtension<MeteorTheme> {
       ],
     ),
     scaffoldBackground: Color(0xFF141414),
-    containerBackground: Color(0xFF1F1F1F),
-    outline: Color(0xFF6F797A),
+    containerBackground: Color(0xFF1E1E1E),
+    outline: Color(0xFF808080),
     textStyle: TextStyle(
+      fontFamily: "Rubik",
       color: Color(0xFFFBFBFB),
     ),
   );
