@@ -61,9 +61,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: theme.scaffoldBackground,
       appBar: AppBar(
-        leading: const Image(
-          image: AssetImage("graphics/meteor.png"),
-        ),
         backgroundColor: theme.scaffoldBackground,
         actions: [
           Padding(
@@ -95,8 +92,19 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ],
-        title: Text(
-          widget.title,
+        title: Row(
+          children: [
+            const Image(
+              image: AssetImage("graphics/meteor.png"),
+              height: 42.0,
+            ),
+            const SizedBox(
+              width: 8.0,
+            ),
+            Text(
+              widget.title,
+            ),
+          ],
         ),
         titleTextStyle: theme.textStyle?.copyWith(fontSize: 24.0),
       ),
@@ -106,18 +114,22 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "UI Demo",
+                "Components",
                 style: theme.textStyle!.copyWith(
                   fontSize: 32.0,
                 ),
               ),
-              const Spacer(),
+              const SizedBox(
+                height: 32.0,
+              ),
               Text(
                 "Button",
-                style: theme.textStyle,
+                style: theme.textStyle!.copyWith(
+                  fontSize: 18.0,
+                ),
               ),
               const SizedBox(
-                height: 16,
+                height: 16.0,
               ),
               Column(
                 children: [
@@ -191,10 +203,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-              const Spacer(),
+              const SizedBox(
+                height: 32.0,
+              ),
               Text(
                 "Switch",
-                style: theme.textStyle,
+                style: theme.textStyle!.copyWith(
+                  fontSize: 18.0,
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -213,16 +229,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               ),
-              const Spacer(),
+              const SizedBox(
+                height: 32.0,
+              ),
               Text(
                 "Text Field",
-                style: theme.textStyle,
+                style: theme.textStyle!.copyWith(
+                  fontSize: 18.0,
+                ),
               ),
               const SizedBox(
                 height: 16,
               ),
               const MyCustomForm(),
-              const Spacer(),
+              const SizedBox(
+                height: 32.0,
+              ),
             ],
           ),
         ),
@@ -269,32 +291,6 @@ class MyCustomFormState extends State<MyCustomForm> {
           )
         ],
       ),
-    );
-  }
-}
-
-class Spacer extends StatelessWidget {
-  const Spacer({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final MeteorTheme theme = Theme.of(context).extension<MeteorTheme>()!;
-
-    return Column(
-      children: [
-        const SizedBox(
-          height: 32.0,
-        ),
-        Divider(
-          thickness: 4.0,
-          indent: 16.0,
-          endIndent: 16.0,
-          color: theme.outline,
-        ),
-        const SizedBox(
-          height: 32.0,
-        ),
-      ],
     );
   }
 }
