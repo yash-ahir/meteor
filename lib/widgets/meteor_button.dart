@@ -27,7 +27,7 @@ class _MeteorButtonState extends State<MeteorButton> {
   Widget build(BuildContext context) {
     final MeteorTheme theme = Theme.of(context).extension<MeteorTheme>()!;
 
-    BorderRadius borderRadius = const BorderRadius.all(Radius.circular(20.0));
+    BorderRadius borderRadius = const BorderRadius.all(Radius.circular(8.0));
 
     EdgeInsets contentPadding = EdgeInsets.symmetric(
       vertical:
