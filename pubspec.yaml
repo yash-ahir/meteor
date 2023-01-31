@@ -26,5 +26,11 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
   assets:
     - graphics/
+
+  fonts:
+    - family: Rubik
+      fonts:
+        - asset: fonts/Rubik-Regular.ttf
