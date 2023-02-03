@@ -23,6 +23,7 @@ class MeteorTextField extends StatelessWidget {
     this.obscuringCharacter = '•',
     this.hintText,
     this.padding = const EdgeInsets.symmetric(horizontal: 32.0),
+    this.onTap,
   }) : super(key: key);
 
   final String? initialValue;
@@ -39,6 +40,7 @@ class MeteorTextField extends StatelessWidget {
   final void Function(String)? onChanged;
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
+  final void Function()? onTap;
   final String? hintText;
   final EdgeInsets padding;
 
@@ -55,6 +57,7 @@ class MeteorTextField extends StatelessWidget {
     return Padding(
       padding: padding,
       child: TextFormField(
+        onTap: onTap,
         initialValue: initialValue,
         keyboardType: keyboardType,
         inputFormatters: inputFormatters,
