@@ -7,38 +7,44 @@ class MeteorTheme extends ThemeExtension<MeteorTheme> {
     required this.primaryGradient,
     required this.errorGradient,
     required this.extendedGradient,
-    required this.scaffoldBackground,
-    required this.containerBackground,
-    required this.outline,
-    required this.textStyle,
+    required this.scaffoldBackgroundColor,
+    required this.containerBackgroundColor,
+    required this.outlineColor,
+    required this.contentColor,
+    required this.textTheme,
   });
 
   final LinearGradient? primaryGradient;
   final LinearGradient? errorGradient;
   final LinearGradient? extendedGradient;
-  final Color? scaffoldBackground;
-  final Color? containerBackground;
-  final Color? outline;
-  final TextStyle? textStyle;
+  final Color? scaffoldBackgroundColor;
+  final Color? containerBackgroundColor;
+  final Color? outlineColor;
+  final Color? contentColor;
+  final TextTheme? textTheme;
 
   @override
   ThemeExtension<MeteorTheme> copyWith({
     LinearGradient? primaryGradient,
     LinearGradient? errorGradient,
     LinearGradient? extendedGradient,
-    Color? scaffoldBackground,
-    Color? containerBackground,
-    Color? outline,
-    TextStyle? textStyle,
+    Color? scaffoldBackgroundColor,
+    Color? containerBackgroundColor,
+    Color? outlineColor,
+    Color? contentColor,
+    TextTheme? textTheme,
   }) {
     return MeteorTheme(
       primaryGradient: primaryGradient ?? this.primaryGradient,
       errorGradient: errorGradient ?? this.errorGradient,
       extendedGradient: extendedGradient ?? this.extendedGradient,
-      scaffoldBackground: scaffoldBackground ?? this.scaffoldBackground,
-      containerBackground: containerBackground ?? this.containerBackground,
-      outline: outline ?? this.outline,
-      textStyle: textStyle ?? this.textStyle,
+      scaffoldBackgroundColor:
+          scaffoldBackgroundColor ?? this.scaffoldBackgroundColor,
+      containerBackgroundColor:
+          containerBackgroundColor ?? this.containerBackgroundColor,
+      outlineColor: outlineColor ?? this.outlineColor,
+      contentColor: contentColor ?? this.contentColor,
+      textTheme: textTheme ?? this.textTheme,
     );
   }
 
@@ -55,12 +61,13 @@ class MeteorTheme extends ThemeExtension<MeteorTheme> {
       errorGradient: LinearGradient.lerp(errorGradient, other.errorGradient, t),
       extendedGradient:
           LinearGradient.lerp(extendedGradient, other.extendedGradient, t),
-      scaffoldBackground:
-          Color.lerp(scaffoldBackground, other.scaffoldBackground, t),
-      containerBackground:
-          Color.lerp(containerBackground, other.containerBackground, t),
-      outline: Color.lerp(outline, other.outline, t),
-      textStyle: other.textStyle,
+      scaffoldBackgroundColor:
+          Color.lerp(scaffoldBackgroundColor, other.scaffoldBackgroundColor, t),
+      containerBackgroundColor: Color.lerp(
+          containerBackgroundColor, other.containerBackgroundColor, t),
+      outlineColor: Color.lerp(outlineColor, other.outlineColor, t),
+      contentColor: Color.lerp(contentColor, other.contentColor, t),
+      textTheme: other.textTheme,
     );
   }
 
@@ -88,12 +95,50 @@ class MeteorTheme extends ThemeExtension<MeteorTheme> {
         Color(0xFFFED80E),
       ],
     ),
-    scaffoldBackground: Color(0xFFFFFFFF),
-    containerBackground: Color(0xFFF6F6F6),
-    outline: Color(0xFF5F6768),
-    textStyle: TextStyle(
-      fontFamily: "Rubik",
-      color: Color(0xFF111111),
+    scaffoldBackgroundColor: Color(0xFFFFFFFF),
+    containerBackgroundColor: Color(0xFFF6F6F6),
+    outlineColor: Color(0xFF5F6768),
+    contentColor: Color(0xFF111111),
+    textTheme: TextTheme(
+      displayLarge: TextStyle(
+        fontFamily: "Rubik",
+        color: Colors.black,
+        fontSize: 60,
+      ),
+      displayMedium: TextStyle(
+        fontFamily: "Rubik",
+        color: Colors.black,
+        fontSize: 48,
+      ),
+      displaySmall: TextStyle(
+        fontFamily: "Rubik",
+        color: Colors.black,
+        fontSize: 36,
+      ),
+      titleLarge: TextStyle(
+        color: Color(0xFF111111),
+        fontSize: 24,
+      ),
+      titleMedium: TextStyle(
+        color: Color(0xFF111111),
+        fontSize: 22,
+      ),
+      titleSmall: TextStyle(
+        color: Color(0xFF111111),
+        fontSize: 20,
+      ),
+      bodyLarge: TextStyle(
+        color: Color(0xFF111111),
+        fontSize: 16,
+      ),
+      bodyMedium: TextStyle(
+        color: Color(0xFF111111),
+        fontSize: 14,
+      ),
+      bodySmall: TextStyle(
+        color: Color(0xFF111111),
+        fontSize: 12,
+      ),
     ),
   );
 
@@ -121,12 +166,50 @@ class MeteorTheme extends ThemeExtension<MeteorTheme> {
         Color(0xFFFEE041),
       ],
     ),
-    scaffoldBackground: Color(0xFF141414),
-    containerBackground: Color(0xFF1E1E1E),
-    outline: Color(0xFF808080),
-    textStyle: TextStyle(
-      fontFamily: "Rubik",
-      color: Color(0xFFFBFBFB),
+    scaffoldBackgroundColor: Color(0xFF141414),
+    containerBackgroundColor: Color(0xFF1E1E1E),
+    outlineColor: Color(0xFF808080),
+    contentColor: Color(0xFFFBFBFB),
+    textTheme: TextTheme(
+      displayLarge: TextStyle(
+        fontFamily: "Rubik",
+        color: Colors.white,
+        fontSize: 60,
+      ),
+      displayMedium: TextStyle(
+        fontFamily: "Rubik",
+        color: Colors.white,
+        fontSize: 48,
+      ),
+      displaySmall: TextStyle(
+        fontFamily: "Rubik",
+        color: Colors.white,
+        fontSize: 36,
+      ),
+      titleLarge: TextStyle(
+        color: Color(0xFFFBFBFB),
+        fontSize: 24,
+      ),
+      titleMedium: TextStyle(
+        color: Color(0xFFFBFBFB),
+        fontSize: 22,
+      ),
+      titleSmall: TextStyle(
+        color: Color(0xFFFBFBFB),
+        fontSize: 20,
+      ),
+      bodyLarge: TextStyle(
+        color: Color(0xFFFBFBFB),
+        fontSize: 18,
+      ),
+      bodyMedium: TextStyle(
+        color: Color(0xFFFBFBFB),
+        fontSize: 16,
+      ),
+      bodySmall: TextStyle(
+        color: Color(0xFFFBFBFB),
+        fontSize: 14,
+      ),
     ),
   );
 }
