@@ -200,15 +200,15 @@ class MeteorTheme extends ThemeExtension<MeteorTheme> {
       ),
       bodyLarge: TextStyle(
         color: Color(0xFFFBFBFB),
-        fontSize: 18,
+        fontSize: 16,
       ),
       bodyMedium: TextStyle(
         color: Color(0xFFFBFBFB),
-        fontSize: 16,
+        fontSize: 14,
       ),
       bodySmall: TextStyle(
         color: Color(0xFFFBFBFB),
-        fontSize: 14,
+        fontSize: 12,
       ),
     ),
   );
