@@ -20,12 +20,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(useMaterial3: true, extensions: const [
-        MeteorTheme.light,
-      ]),
-      darkTheme: ThemeData(useMaterial3: true, extensions: const [
-        MeteorTheme.dark,
-      ]),
+      theme: ThemeData(
+          useMaterial3: true,
+          textTheme: MeteorTheme.light.textTheme,
+          extensions: const [
+            MeteorTheme.light,
+          ]),
+      darkTheme: ThemeData(
+          useMaterial3: true,
+          textTheme: MeteorTheme.dark.textTheme,
+          extensions: const [
+            MeteorTheme.dark,
+          ]),
       themeMode: EasyDynamicTheme.of(context).themeMode,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -59,9 +65,9 @@ class _MyHomePageState extends State<MyHomePage> {
     _darkMode = EasyDynamicTheme.of(context).themeMode == ThemeMode.dark;
 
     return Scaffold(
-      backgroundColor: theme.scaffoldBackground,
+      backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
-        backgroundColor: theme.scaffoldBackground,
+        backgroundColor: theme.scaffoldBackgroundColor,
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -74,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Text(
                   "Dark mode",
-                  style: theme.textStyle,
+                  style: theme.textTheme!.bodyLarge,
                 ),
                 const SizedBox(
                   width: 8.0,
@@ -103,10 +109,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               widget.title,
+              style: theme.textTheme!.titleLarge,
             ),
           ],
         ),
-        titleTextStyle: theme.textStyle?.copyWith(fontSize: 24.0),
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -115,28 +121,18 @@ class _MyHomePageState extends State<MyHomePage> {
             children: [
               Text(
                 "Components",
-                style: theme.textStyle!.copyWith(
-                  fontSize: 32.0,
-                ),
+                style: theme.textTheme!.titleMedium,
               ),
               const SizedBox(
                 height: 32.0,
               ),
-              Text(
-                "Button",
-                style: theme.textStyle!.copyWith(
-                  fontSize: 18.0,
-                ),
-              ),
+              const Text("Button"),
               const SizedBox(
                 height: 16.0,
               ),
               Column(
                 children: [
-                  Text(
-                    "With gradient",
-                    style: theme.textStyle,
-                  ),
+                  const Text("With gradient"),
                   const SizedBox(
                     height: 4.0,
                   ),
@@ -170,10 +166,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   const SizedBox(
                     height: 8.0,
                   ),
-                  Text(
-                    "Without gradient",
-                    style: theme.textStyle,
-                  ),
+                  const Text("Without gradient"),
                   const SizedBox(
                     height: 4.0,
                   ),
@@ -206,19 +199,11 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(
                 height: 32.0,
               ),
-              Text(
-                "Switch",
-                style: theme.textStyle!.copyWith(
-                  fontSize: 18.0,
-                ),
-              ),
+              const Text("Switch"),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text(
-                    'Switch is ${_switchState ? "on" : "off"}',
-                    style: theme.textStyle,
-                  ),
+                  Text('Switch is ${_switchState ? "on" : "off"}'),
                   MeteorSwitch(
                     value: _switchState,
                     onChanged: (value) {
@@ -232,12 +217,7 @@ class _MyHomePageState extends State<MyHomePage> {
               const SizedBox(
                 height: 32.0,
               ),
-              Text(
-                "Text Field",
-                style: theme.textStyle!.copyWith(
-                  fontSize: 18.0,
-                ),
-              ),
+              const Text("Text Field"),
               const SizedBox(
                 height: 16,
               ),
