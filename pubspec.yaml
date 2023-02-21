@@ -19,6 +19,9 @@ dependencies:
 
   easy_dynamic_theme: ^2.2.0
 
+  focusable_control_builder:
+    git: https://github.com/yash-ahir/flutter-focusable-control-builder.git
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
