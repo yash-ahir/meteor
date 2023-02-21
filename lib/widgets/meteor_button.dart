@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:focusable_control_builder/focusable_control_builder.dart';
 
 import '../resources/meteor_theme.dart';
 
@@ -49,17 +50,17 @@ class _MeteorButtonState extends State<MeteorButton> {
               borderRadius: borderRadius,
             )
           : BoxDecoration(
-              color: theme.containerBackground!,
+              color: theme.containerBackgroundColor!,
               border: Border.all(
                 width: 2.0,
-                color: theme.outline!,
+                color: theme.outlineColor!,
               ),
               borderRadius: borderRadius,
             ),
       child: InkWell(
-        focusColor: theme.outline?.withOpacity(widget.gradient ? 0.5 : 0.3),
-        hoverColor: theme.outline?.withOpacity(widget.gradient ? 0.4 : 0.2),
-        splashColor: theme.outline?.withOpacity(0.1),
+        focusColor: theme.outlineColor?.withOpacity(widget.gradient ? 0.5 : 0.3),
+        hoverColor: theme.outlineColor?.withOpacity(widget.gradient ? 0.4 : 0.2),
+        splashColor: theme.outlineColor?.withOpacity(0.1),
         mouseCursor: SystemMouseCursors.click,
         enableFeedback: true,
         borderRadius: borderRadius,
@@ -78,8 +79,8 @@ class _MeteorButtonState extends State<MeteorButton> {
                           widget.text!,
                           style: TextStyle(
                             color: widget.gradient
-                                ? theme.scaffoldBackground!
-                                : theme.textStyle!.color!,
+                                ? theme.scaffoldBackgroundColor!
+                                : theme.contentColor,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -93,8 +94,8 @@ class _MeteorButtonState extends State<MeteorButton> {
                   ? Icon(
                       widget.icon,
                       color: widget.gradient
-                          ? theme.scaffoldBackground!
-                          : theme.textStyle!.color!,
+                          ? theme.scaffoldBackgroundColor!
+                          : theme.contentColor,
                     )
                   : Container(),
             ],
