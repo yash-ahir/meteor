@@ -48,18 +48,18 @@ class _MeteorSwitchState extends State<MeteorSwitch> {
                 boxShadow: controlState.isFocused
                     ? [
                         BoxShadow(
-                          color: theme.outline!.withOpacity(0.5),
+                          color: theme.outlineColor!.withOpacity(0.5),
                           spreadRadius: 3.0,
                         ),
                       ]
                     : null,
                 gradient: _switchState ? theme.primaryGradient : null,
                 border: Border.all(
-                  color: theme.outline!,
+                  color: theme.outlineColor!,
                   width: _switchState ? double.minPositive : 2.0,
                 ),
                 borderRadius: BorderRadius.circular(32.0),
-                color: theme.containerBackground,
+                color: theme.containerBackgroundColor,
               ),
               height: 32.0,
               width: 52.0,
@@ -80,8 +80,8 @@ class _MeteorSwitchState extends State<MeteorSwitch> {
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: _switchState
-                        ? theme.containerBackground
-                        : theme.outline,
+                        ? theme.containerBackgroundColor
+                        : theme.outlineColor,
                   ),
                 ),
               ),

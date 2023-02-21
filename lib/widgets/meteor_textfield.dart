@@ -72,20 +72,20 @@ class MeteorTextField extends StatelessWidget {
         onChanged: onChanged,
         onSaved: onSaved,
         validator: validator,
-        style: theme.textStyle,
-        cursorColor: theme.textStyle?.color,
+        style: theme.textTheme!.bodyLarge,
+        cursorColor: theme.contentColor,
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: theme.textStyle?.copyWith(
-            color: theme.outline,
+          hintStyle: theme.textTheme!.bodyLarge?.copyWith(
+            color: theme.outlineColor,
           ),
           filled: true,
-          fillColor: theme.containerBackground,
-          hoverColor: theme.containerBackground,
+          fillColor: theme.containerBackgroundColor,
+          hoverColor: theme.containerBackgroundColor,
           contentPadding: contentPadding,
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: theme.outline!,
+              color: theme.outlineColor!,
               width: borderWidth,
             ),
             borderRadius: borderRadius,
@@ -107,7 +107,7 @@ class MeteorTextField extends StatelessWidget {
           ),
           disabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: theme.outline!,
+              color: theme.outlineColor!,
               width: disabledBorderWidth,
             ),
             borderRadius: borderRadius,
